@@ -4,12 +4,20 @@ let formEl = document.querySelector("#search");
 let cityInputEl = document.querySelector("#city");
 let tempEl = document.querySelector("#temp");
 let messageEl = document.querySelector("#message");
+let errorMessageEl = document.querySelector(".errorMessage");
 
 async function getData() {
   // Fetch data from Open Weather Map API, passing the input value as city
   let res = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityInputEl.value}&appid=8f20807cea52eed92572aea82df038d5`
   );
+  if (!res.ok) {
+    // If no city is found, show an error message
+    errorMessageEl.classList.toggle("errorMessage-shown");
+  } else {
+    errorMessageEl.classList.remove("errorMessage-shown");
+  }
+
   let data = await res.json();
 
   // We get temperatures back in Kelvin so we need to convert nto Celsius

@@ -10,9 +10,12 @@
     <div class="container">
       <form id="search">
         <label for="city" class="label">Search for a city:</label>
-        <input type="text" id="city" class="input" />
+        <input type="text" id="city" class="input" required />
         <button class="button">Search</button>
       </form>
+      <div class="errorMessage">
+        City not found, please enter a valid city name
+      </div>
       <div id="temp" class="temp"></div>
       <div id="message" class="message"></div>
     </div>

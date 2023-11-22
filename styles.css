@@ -61,3 +61,12 @@ body {
 .message {
   text-align: center;
 }
+
+.errorMessage {
+  color: rgb(214, 1, 1);
+  display: none;
+}
+
+.errorMessage-shown {
+  display: block;
+}
